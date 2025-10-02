@@ -3,13 +3,15 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>EasyMetaData • Repositories</title>
-    <meta name="description" content="EasyMetaData open source projects. Browse repositories, stars, languages, and latest activity." />
-    <meta property="og:title" content="EasyMetaData • Open Source Repositories" />
+    <title>EasyMetaData</title>
+    <meta name="description" content="EasyMetaData. Browse repositories, stars, languages, and latest activity." />
+    <meta property="og:title" content="EasyMetaData" />
     <meta property="og:description" content="EasyMetaData open source projects. Browse repositories, stars, languages, and latest activity." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.easymetadata.com/" />
     <meta name="theme-color" content="#0f172a" />
+    <link rel="icon" type="image/jpeg" href="emd_github2.jpg" />
+    <link rel="apple-touch-icon" href="emd_github2.jpg" />
 
     <style>
       :root {
@@ -53,8 +55,12 @@
       }
       .logo {
         width: 28px; height: 28px; border-radius: 8px;
-        background: conic-gradient(from 210deg, var(--brand), var(--accent));
+        background: rgba(10,16,35,.6);
         box-shadow: 0 0 0 2px rgba(79,140,255,.15), 0 6px 18px rgba(34,211,238,.15);
+        display: flex; align-items: center; justify-content: center; overflow: hidden;
+      }
+      .logo img {
+        width: 100%; height: 100%; object-fit: cover; border-radius: 8px;
       }
       .nav-link {
         padding: 8px 10px; border-radius: 8px; color: var(--text);
@@ -137,7 +143,9 @@
     <header>
       <div class="container nav">
         <div class="brand">
-          <div class="logo" aria-hidden="true"></div>
+          <div class="logo" aria-hidden="true">
+            <img src="emd_github2.jpg" alt="EasyMetaData logo" />
+          </div>
           <span>EasyMetaData</span>
         </div>
         <nav style="display:flex; gap:14px; align-items:center; flex-wrap:wrap;">
@@ -218,63 +226,8 @@
 
       <section id="resources" class="intro" aria-label="Resources">
         <h2 class="section-title"><span class="title-row">
-          <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.25 4A2.25 2.25 0 0 0 4 6.25v11.5A2.25 2.25 0 0 0 6.25 20h11.5A2.25 2.25 0 0 0 20 17.75V6.25A2.25 2.25 0 0 0 17.75 4H6.25Z"/><path d="M7.5 7.5h9v1.5h-9V7.5Zm0 3h9V12h-9v-1.5Zm0 3h6v1.5h-6V13.5Z"/></svg>
-          <span>Resources</span>
-        </span></h2>
-        <div class="grid">
-          <article class="card">
-            <div class="title">Links</div>
-            <div class="desc">Curated links to DFIR, InfoSec, and metadata-focused articles and tools.</div>
-            <div class="meta">
-              <a class="badge" href="#social">See social resources</a>
-            </div>
-          </article>
-          <article class="card">
-            <div class="title">Forensic & DFIR Resources</div>
-            <div class="desc">Pointers to trusted sources for research, webcasts, and daily technical posts in the DFIR community.</div>
-            <div class="meta">
-              <a class="badge" href="#social">Explore community</a>
-            </div>
-          </article>
-          <article class="card">
-            <div class="title">About</div>
-            <div class="desc">EasyMetaData is a project by Red Rock Solutions LLC (founded by David Dym) focused on practical tools for metadata and artifact analysis.</div>
-          </article>
-        </div>
-      </section>
-
-      <h2 class="section-title" style="margin-top:28px"><span class="title-row">
-        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.83 1.24 1.83 1.24 1.08 1.85 2.83 1.32 3.52 1.01.11-.78.42-1.32.76-1.62-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.39 1.24-3.24-.12-.31-.54-1.57.12-3.27 0 0 1.01-.32 3.3 1.24a11.5 11.5 0 0 1 6 0c2.28-1.56 3.29-1.24 3.29-1.24.66 1.7.24 2.96.12 3.27.77.85 1.23 1.92 1.23 3.24 0 4.63-2.81 5.65-5.49 5.95.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.82.58A12 12 0 0 0 12 .5Z"/></svg>
-        <span>GitHub Repositories</span>
-      </span></h2>
-      <section id="repos" class="controls" aria-label="Browse controls">
-        <label class="field">
-          <span class="sr-only">Filter repositories</span>
-          <input id="filter" class="input" type="search" placeholder="Filter repositories by name, description, or language…" autocomplete="off" />
-        </label>
-        <label class="field">
-          <span class="sr-only">Sort by</span>
-          <select id="sort" class="select" aria-label="Sort repositories">
-            <option value="updated">Sort: Recently updated</option>
-            <option value="stars" selected>Sort: Most stars</option>
-            <option value="name">Sort: Name A→Z</option>
-          </select>
-        </label>
-        <label class="field">
-          <span class="sr-only">Filter by language</span>
-          <select id="language" class="select" aria-label="Filter by language">
-            <option value="">Language: All</option>
-          </select>
-        </label>
-      </section>
-
-      <div id="status" class="empty">Loading repositories…</div>
-      <section id="grid" class="grid" aria-live="polite" aria-busy="true"></section>
-
-      <section id="social" class="intro" aria-label="Social media">
-        <h2 class="section-title"><span class="title-row">
           <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.5 6A2.5 2.5 0 0 1 7 3.5h10A2.5 2.5 0 0 1 19.5 6v12A2.5 2.5 0 0 1 17 20.5H7A2.5 2.5 0 0 1 4.5 18V6Z"/><path d="M8 7h8v2H8V7Zm0 4h5v2H8v-2Z"/></svg>
-          <span>Social</span>
+          <span>Resources</span>
         </span></h2>
         <div class="grid">
           <article class="card">
@@ -333,6 +286,22 @@
         </div>
       </section>
 
+      <section id="repos" class="intro" aria-label="GitHub Repositories">
+        <h2 class="section-title"><span class="title-row">
+          <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.83 1.24 1.83 1.24 1.08 1.85 2.83 1.32 3.52 1.01.11-.78.42-1.32.76-1.62-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.39 1.24-3.24-.12-.31-.54-1.57.12-3.27 0 0 1.01-.32 3.3 1.24a11.5 11.5 0 0 1 6 0c2.28-1.56 3.29-1.24 3.29-1.24.66 1.7.24 2.96.12 3.27.77.85 1.23 1.92 1.23 3.24 0 4.63-2.81 5.65-5.49 5.95.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.82.58A12 12 0 0 0 12 .5Z"/></svg>
+          <span>GitHub Repositories</span>
+        </span></h2>
+        
+        <div id="status" class="empty">Loading repositories…</div>
+        <section id="grid" class="grid" aria-live="polite" aria-busy="true"></section>
+        
+        <div id="show-all-container" style="text-align: center; margin-top: 16px; display: none;">
+          <a class="btn btn-primary" href="https://github.com/easymetadata?tab=repositories" target="_blank" rel="noopener noreferrer">
+            Show all repositories on GitHub →
+          </a>
+        </div>
+      </section>
+
     </main>
 
     <footer>
@@ -341,10 +310,10 @@
           <a class="footer-link" href="#home">Home</a>
           <a class="footer-link" href="#projects">Projects</a>
           <a class="footer-link" href="#resources">Resources</a>
-          <a class="footer-link" href="#social">Social</a>
           <a class="footer-link" href="#books">Books</a>
+          <a class="footer-link" href="#repos">Repositories</a>
           <a class="footer-link" href="#blog">Blog</a>
-          <a class="footer-link" href="#ip-info">IP info</a>
+          <a class="footer-link" href="https://www.easymetadata.com/ipinfo/">IP info</a>
         </div>
         <div>
           <span>Built by <a href="https://github.com/easymetadata" target="_blank" rel="noopener noreferrer">David Dym (@easymetadata)</a></span>
@@ -359,10 +328,7 @@
 
       const els = {
         grid: document.getElementById("grid"),
-        status: document.getElementById("status"),
-        filter: document.getElementById("filter"),
-        sort: document.getElementById("sort"),
-        language: document.getElementById("language")
+        status: document.getElementById("status")
       };
 
       const state = {
@@ -378,47 +344,30 @@
         return (str ?? "").replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
       }
 
-      function renderLanguagesFilter(repos) {
-        const languages = Array.from(new Set(repos.map(r => r.language).filter(Boolean))).sort((a,b)=>a.localeCompare(b));
-        els.language.innerHTML = '<option value="">Language: All</option>' + languages.map(l => `<option value="${escapeHtml(l)}">${escapeHtml(l)}</option>`).join("");
-      }
-
-      function applyFilters() {
-        const q = (els.filter.value || "").toLowerCase();
-        const lang = els.language.value;
-        let list = [...state.repos];
-
-        if (q) {
-          list = list.filter(r =>
-            (r.name && r.name.toLowerCase().includes(q)) ||
-            (r.description && r.description.toLowerCase().includes(q)) ||
-            (r.language && r.language.toLowerCase().includes(q))
-          );
-        }
-
-        if (lang) list = list.filter(r => r.language === lang);
-
-        const sortBy = els.sort.value;
-        if (sortBy === 'updated') list.sort((a,b)=> new Date(b.pushed_at) - new Date(a.pushed_at));
-        if (sortBy === 'stars') list.sort((a,b)=> (b.stargazers_count||0) - (a.stargazers_count||0));
-        if (sortBy === 'name') list.sort((a,b)=> a.name.localeCompare(b.name));
-
-        state.filtered = list;
-        renderGrid();
-      }
-
-      function renderGrid() {
+      function renderRepositories() {
         els.grid.setAttribute('aria-busy','false');
-        if (!state.filtered.length) {
+        if (!state.repos.length) {
           els.grid.innerHTML = "";
           els.status.className = "empty";
-          els.status.textContent = "No repositories match your filters.";
+          els.status.textContent = "Unable to load repositories from GitHub right now. Please try again later.";
           return;
         }
 
+        // Sort by stars (descending) and take top 5
+        const sortedRepos = [...state.repos].sort((a,b)=> (b.stargazers_count||0) - (a.stargazers_count||0));
+        const topRepos = sortedRepos.slice(0, 5);
+        
         els.status.textContent = "";
         els.status.className = "";
-        const html = state.filtered.map(repo => {
+        
+        const showAllContainer = document.getElementById('show-all-container');
+        if (state.repos.length > 5) {
+          showAllContainer.style.display = 'block';
+        } else {
+          showAllContainer.style.display = 'none';
+        }
+        
+        const html = topRepos.map(repo => {
           const name = escapeHtml(repo.name);
           const desc = escapeHtml(repo.description || "No description provided.");
           const lang = escapeHtml(repo.language || "");
@@ -444,6 +393,7 @@
         els.grid.innerHTML = html;
       }
 
+
       async function fetchAllRepos() {
         const url = `${apiBase}?per_page=100&sort=updated`;
         const headers = { 'Accept': 'application/vnd.github+json' };
@@ -456,13 +406,11 @@
         document.getElementById('year').textContent = new Date().getFullYear();
         try {
           const repos = await fetchAllRepos();
-          // Hide forks by default; show original work prominently
-          state.repos = (repos || []).filter(r => !r.private).sort((a,b)=> (b.stargazers_count||0) - (a.stargazers_count||0));
-          els.sort.value = 'stars';
-          renderLanguagesFilter(state.repos);
+          // Filter private repos and store in state
+          state.repos = (repos || []).filter(r => !r.private);
           els.grid.setAttribute('aria-busy','false');
           els.status.textContent = "";
-          applyFilters();
+          renderRepositories();
         } catch (err) {
           console.error(err);
           els.grid.setAttribute('aria-busy','false');
@@ -471,9 +419,6 @@
         }
       }
 
-      els.filter.addEventListener('input', applyFilters);
-      els.sort.addEventListener('change', applyFilters);
-      els.language.addEventListener('change', applyFilters);
       init();
     </script>
   </body>
