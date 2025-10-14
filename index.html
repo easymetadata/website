@@ -64,28 +64,28 @@
             <div class="title">MetaDiver</div>
             <div class="desc">An easy-to-use solution for extracting and reviewing metadata from files, email, and system artifacts on Windows. Supports PST, MSG, EML, PDF, Office, images, media, and thousands more via engines like Apache Tika and Outlook Redemption.</div>
             <div class="meta">
-              <a class="btn btn-sm" href="https://github.com/easymetadata/MetaDiver" title="Learn more">Read more</a>
+              <a class="btn btn-sm" href="https://github.com/easymetadata/MetaDiver" title="More information">More info</a>
             </div>
           </article>
           <article class="card">
             <div class="title">IP Tools</div>
             <div class="desc">IP geo ip and threat lookup enrichment python scripts.                                 </div>
             <div class="meta">
-              <a class="btn btn-sm" href="https://github.com/easymetadata/IPTools" title="Learn more">Read more</a>
+              <a class="btn btn-sm" href="https://github.com/easymetadata/IPTools" title="More information">More info</a>
             </div>
           </article>
           <article class="card">
             <div class="title">ShadowKit</div>
             <div class="desc">Recover previous versions of files on Windows, including versions not available via Explorer. Especially useful on Windows 8 and later.</div>
             <div class="meta">
-              <a class="btn btn-sm" href="https://github.com/easymetadata/ShadowKit" title="Learn more">Read more</a>
+              <a class="btn btn-sm" href="https://github.com/easymetadata/ShadowKit" title="More information">More info</a>
             </div>
           </article>
           <article class="card">
             <div class="title">Projects on GitHub</div>
             <div class="desc">Explore scripts, tools, and experiments maintained under the EasyMetaData GitHub account.</div>
             <div class="meta">
-              <a class="btn btn-sm" href="https://github.com/easymetadata" title="Learn more">Read more</a>
+              <a class="btn btn-sm" href="https://github.com/easymetadata" title="More information">More info</a>
             </div>
           </article>
         </div>
@@ -214,6 +214,13 @@
       </div>
     </footer>
 
+    <!-- Scroll to top button -->
+    <button class="scroll-to-top" aria-label="Scroll to top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 4l-8 8h5v8h6v-8h5z"/>
+      </svg>
+    </button>
+
     <script>
       const GITHUB_USER = "easymetadata";
       const apiBase = `https://api.github.com/users/${GITHUB_USER}/repos`;
@@ -310,6 +317,52 @@
           els.status.textContent = 'Unable to load repositories from GitHub right now. Please try again later.';
         }
       }
+
+      // Scroll to top button functionality
+      const scrollToTopBtn = document.querySelector('.scroll-to-top');
+      
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+          scrollToTopBtn.classList.add('visible');
+        } else {
+          scrollToTopBtn.classList.remove('visible');
+        }
+      });
+
+      // Card hover effect with mouse position
+      document.addEventListener('mousemove', (e) => {
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+          const rect = card.getBoundingClientRect();
+          const x = ((e.clientX - rect.left) / rect.width) * 100;
+          const y = ((e.clientY - rect.top) / rect.height) * 100;
+          card.style.setProperty('--mouse-x', `${x}%`);
+          card.style.setProperty('--mouse-y', `${y}%`);
+        });
+      });
+
+      // Intersection Observer for fade-in animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, observerOptions);
+
+      // Observe all sections
+      document.querySelectorAll('.intro, .hero').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+      });
 
       init();
     </script>
